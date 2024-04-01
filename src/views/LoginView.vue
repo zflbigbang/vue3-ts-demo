@@ -84,7 +84,11 @@ export default defineComponent({
             // 将token进行保存
             localStorage.setItem("token", res.data.token);
             // 跳转页面，首页
-            router.push('/')
+            if(res.data.code==1){
+              router.push('/')
+            }else{
+              alert("用户名或密码错误")
+            }
           });
         } else {
           console.log("error submit!");
