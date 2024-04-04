@@ -1,10 +1,10 @@
 export interface LoginFormInt {
-    username: string
+    name: string
     password: string
 }
 export class LoginData {
     ruleForm:LoginFormInt={
-        username:"",
+        name:"",
         password:""
     }
 }

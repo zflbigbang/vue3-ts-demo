@@ -1,23 +1,66 @@
 import service from ".";
 interface loginData{
-    username:string,
+    name:string,
     password:string
 }
-// 登录接口
+// 管理员登录接口
 export function login(data:loginData){
     return service({
-        url:"/login",
+        url:"/admin/login",
         method:"post",
         data
     })
 }
-// 商品列表接口
-export function getGoodsList(){
+// 帖子列表分页接口
+export function getPostPage(params:{
+    current:number,
+    size:number
+}){
     return service({
-        url:"/getGoodsList",
-        method:"get"
+        url:"/post/list",
+        method:"get",
+        params
     })
 }
+// 帖子查询分页接口
+export function searchPostPage(params:{
+    keyword:any,
+    current:number,
+    size:number
+    }){
+    return service({
+        url:"/post/search",
+        method:"get",
+        params
+    })
+}
+// 帖子新增接口
+export function addPost(data:any){
+    return service({
+        url:"/post",
+        method:"post",
+        data
+    })
+}
+// 帖子更新接口
+export function updatePost(data:any){
+    return service({
+        url:"/post",
+        method:"put",
+        data
+    })
+}
+// 帖子删除接口
+export function deletePost(params:{
+    id:number
+}){
+    return service({
+        url:"/post",
+        method:"delete",
+        params
+    })
+}
+
 // 用户列表接口
 export function getUserList(){
     return service({
