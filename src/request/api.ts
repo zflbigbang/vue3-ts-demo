@@ -61,10 +61,59 @@ export function deletePost(params:{
     })
 }
 
+export function searchUserPage(params:{
+    keyword:any,
+    current:number,
+    size:number
+    }){
+    return service({
+        url:"/user/search",
+        method:"get",
+        params
+    })
+}
+
+export function getUserPage(params:{
+    current:number,
+    size:number
+}){
+    return service({
+        url:"/user/list",
+        method:"get",
+        params
+    })
+}
+
+export function updateUser(data:any){
+    return service({
+        url:"/user",
+        method:"put",
+        data
+    })
+}
+
+export function addUser(data:any){
+    return service({
+        url:"/user",
+        method:"post",
+        data
+    })
+}
+
+export function deleteUser(params:{
+    id:number
+}){
+    return service({
+        url:"/user",
+        method:"delete",
+        params
+    })
+}
+
 // 用户列表接口
 export function getUserList(){
     return service({
-        url:"/getUserList",
+        url:"/user/list",
         method:"get"
     })
 }

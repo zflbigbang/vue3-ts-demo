@@ -1,40 +1,36 @@
-export interface ListInt {
-    id: number
-    nickName: string
-    role: RoleInt[]
-    userName: string
-}
-interface RoleInt {
-    role: number,
-    roleName: string
-}
-interface SelectDataInt {
-    role: number,
-    nickName: string
-}
-interface RoleListInt {
-    authority: number[]
-    roleId: number
-    roleName: string
-}
-interface ActiveInt{
-    id: number
-    nickName: string
-    role: number[] 
-    userName: string
-}
 export class InitData {
     selectData: SelectDataInt = {
-        nickName: "",
-        role: 0
+      records: [],
+      total: 0,
+      size: 10,
+      current: 1,
+      orders: [],
+      optimizeCountSql: true,
+      searchCount: true,
+      countId: null,
+      maxLimit: null,
+      pages: 1
     }
-    list: ListInt[] = []//用来接受用户信息的列表
-    roleList:RoleListInt[]=[]//用来接受角色信息的列表
-    isShow=false
-    active:ActiveInt={//选中的对象
-        id: 0,
-        nickName: "",
-        role:[] ,
-        userName: ""
-    }
-}
+  }
+  export interface UserRecord {
+    id: number;
+    age: number;
+    password:string;
+    sex: number;
+    name: string;
+    timecoin: number;
+    email: string;
+  }
+  
+  export interface SelectDataInt {
+    records: UserRecord[];
+    total: number;
+    size: number;
+    current: number;
+    orders: any[];
+    optimizeCountSql: boolean;
+    searchCount: boolean;
+    countId: any;
+    maxLimit: any;
+    pages: number;
+  }
